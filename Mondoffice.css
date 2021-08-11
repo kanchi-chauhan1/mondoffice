@@ -1,0 +1,62 @@
+.container-checkout > section > div.checkout-wrapper-promocode{
+    display:none;
+}
+.custom-input-code {
+    height: 5rem;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #e0e4ea;
+    border-bottom: 2px solid #656f84;
+    padding: 1.2rem 2rem 0;
+    margin-top: 9px;
+    font-size: 1.4rem;
+    color: #656f84;
+    outline: 0;
+}
+
+span#promocode-submit-1 {
+    position: absolute;
+    right: 0px;
+    margin-right: 19px;
+    top: 28px;
+    font-size: 24px;
+    color: #276EF1;
+    cursor: pointer;
+}
+
+.form-group.text-container.small {
+    width: 368px!important;
+}
+
+ul.recap-list {
+    padding-left: 10px!important;
+}
+
+.checkout-wrapper-promocode.mt-2.flex.col {
+    padding: 0px 10px;
+}
+
+.custom-placeholder-heading {
+    position: absolute;
+    top: 13px;
+    left: 16px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    visibility: hidden;
+}
+.custom-message {
+    padding-top: 8px;
+}
+.show-heading{
+    visibility: visible;
+    color:#276EF1;
+}
+.success{
+    color:green;
+}
+.failure{
+    color:red;
+}
