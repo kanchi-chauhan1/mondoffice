@@ -1,6 +1,11 @@
 .container-checkout > section > div.checkout-wrapper-promocode{
     display:none;
 }
+
+section.why-choose-block.static-pages {
+    display: none;
+}
+
 .custom-input-code {
     height: 5rem;
     width: 100%;
@@ -13,15 +18,11 @@
     color: #656f84;
     outline: 0;
 }
-
-span#promocode-submit-1 {
+.custom-promocode-submit{
     position: absolute;
     right: 0px;
     margin-right: 19px;
     top: 28px;
-    font-size: 24px;
-    color: #276EF1;
-    cursor: pointer;
 }
 
 .form-group.text-container.small {
