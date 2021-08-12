@@ -88,12 +88,18 @@ ul.recap-list {
 }
 .custom-right{
     visibility: hidden;
+    position: absolute;
+    top:0px;
 }
 .custom-wrong{
     visibility: hidden;
+    position: absolute;
+    top:0px;
 }
 .custom-arrow{
     visibility: hidden;
+    position: absolute;
+    top:0px;
 }
 .custom-show{
     visibility:visible;

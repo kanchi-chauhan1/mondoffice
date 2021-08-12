@@ -63,7 +63,21 @@
             document.querySelector('.custom-input-code').classList.remove('custom-border-color-pass');
             document.querySelector('.custom-input-code').classList.remove('custom-border-color-fail');
         }
-        
+
+        function matchingCouponCode () {
+            customMessage.classList.remove('custom-fail');
+            placeholderHeading.classList.remove('custom-fail');
+            placeholderHeading.classList.add('show-heading');
+            placeholderHeading.classList.add('custom-pass');
+            customMessage.innerText="Lo sconto è stato applicato.";
+            customMessage.classList.add('custom-pass');
+            document.querySelector('.custom-input-code').classList.add('custom-border-color-pass');
+            document.querySelector('.custom-input-code').classList.remove('custom-border-color-fail');
+            document.querySelector('.custom-right').classList.add('custom-show');
+            document.querySelector('.custom-wrong').classList.remove('custom-show');
+            document.querySelector('.custom-arrow').classList.remove('custom-show');
+        }
+
         document.querySelector('.custom-input-code').addEventListener('input',function (event) {
             if (event.target.value === "") {
                 removingCustomClasses();
@@ -88,17 +102,7 @@
                 removingCustomClasses();
                 customMessage.innerText="";
             } else if(document.querySelector('.custom-input-code').value === "MONDO10"){
-                customMessage.classList.remove('custom-fail');
-                placeholderHeading.classList.remove('custom-fail');
-                placeholderHeading.classList.add('show-heading');
-                placeholderHeading.classList.add('custom-pass');
-                customMessage.innerText="Lo sconto è stato applicato.";
-                customMessage.classList.add('custom-pass');
-                document.querySelector('.custom-input-code').classList.add('custom-border-color-pass');
-                document.querySelector('.custom-input-code').classList.remove('custom-border-color-fail');
-                document.querySelector('.custom-right').classList.add('custom-show');
-                document.querySelector('.custom-wrong').classList.remove('custom-show');
-                document.querySelector('.custom-arrow').classList.remove('custom-show');
+                matchingCouponCode();
             } else {
                 placeholderHeading.classList.add('show-heading');
                 placeholderHeading.classList.remove('custom-pass');
