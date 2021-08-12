@@ -74,9 +74,27 @@ ul.recap-list {
     visibility: visible;
     color:#276EF1;
 }
-.success{
+.custom-pass{
     color:green;
 }
-.failure{
+.custom-fail{
     color:red;
+}
+.custom-border-color-pass{
+    border-bottom: 2px solid green;
+}
+.custom-border-color-fail{
+    border-bottom: 2px solid red;
+}
+.custom-right{
+    visibility: hidden;
+}
+.custom-wrong{
+    visibility: hidden;
+}
+.custom-arrow{
+    visibility: hidden;
+}
+.custom-show{
+    visibility:visible;
 }
