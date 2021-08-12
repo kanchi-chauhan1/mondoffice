@@ -37,6 +37,25 @@ ul.recap-list {
     padding: 0px 10px;
 }
 
+.recap {
+    padding: 30px 22px;
+    margin: 0px!important;
+}
+
+.recap-title {
+    margin: 0px!important;
+}
+
+ul.recap-list {
+    top: 30px!important;
+    margin-bottom: 30px!important;
+}
+
+.recap-row {
+    padding: 10px 0px!important;
+    min-height: 50px!important;
+}
+
 .custom-placeholder-heading {
     position: absolute;
     top: 13px;
