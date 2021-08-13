@@ -47,11 +47,27 @@
         </fieldset>
         </form>
         </div>`);
-    }
 
-    function addCouponFunctionality () {
+        /*--------------ADDING ARROW AND HEADING WHILE INPUT-------------*/ 
         var placeholderHeading = document.querySelector('.custom-placeholder-heading');
         var customMessage = document.querySelector('.custom-message');
+        document.querySelector('.custom-input-code').addEventListener('input',function (event) {
+            if (event.target.value === "") {
+                document.querySelector('.custom-arrow').classList.remove('custom-show');
+                placeholderHeading.classList.remove('show-heading');       
+                placeholderHeading.innerHTML="";
+                customMessage.innerHTML="";
+                customMessage.classList.remove('custom-fail');
+                customMessage.classList.remove('custom-pass');
+                document.querySelector('.custom-input-code').classList.remove('custom-border-color-pass');
+                document.querySelector('.custom-input-code').classList.remove('custom-border-color-fail');
+            } else {
+                placeholderHeading.classList.add('show-heading');
+                document.querySelector('.custom-arrow').classList.add('custom-show');
+                document.querySelector('.custom-wrong').classList.remove('custom-show');
+                document.querySelector('.custom-right').classList.remove('custom-show');
+            }
+        });
 
         function removingCustomClasses () {
             document.querySelector('.custom-arrow').classList.remove('custom-show');
@@ -77,50 +93,37 @@
             document.querySelector('.custom-wrong').classList.remove('custom-show');
             document.querySelector('.custom-arrow').classList.remove('custom-show');
         }
+        /*--------------------STORING VALUE ON CLICK----------------------*/
 
-        document.querySelector('.custom-input-code').addEventListener('input',function (event) {
-            if (event.target.value === "") {
-                removingCustomClasses();
-                placeholderHeading.innerHTML="";
-                customMessage.innerHTML="";
-                customMessage.classList.remove('custom-pass');
-                customMessage.classList.remove('custom-fail');
-                document.querySelector('.custom-input-code').classList.remove('custom-border-color');
-            } else {
-                placeholderHeading.classList.add('show-heading');
-                document.querySelector('.custom-arrow').classList.add('custom-show');
-                document.querySelector('.custom-right').classList.remove('custom-show');
-                document.querySelector('.custom-wrong').classList.remove('custom-show');
-                placeholderHeading.innerHTML="Inserisci coupon";
-            }
+        document.querySelector('.custom-arrow').addEventListener('click',function () {
+            let customCodeValue = document.querySelector('.custom-input-code').value;
+            document.querySelector('.checkout-promocode-input').value = customCodeValue;
+            localStorage.setItem("couponcode",customCodeValue);
+            document.querySelector('.checkout-promocode-submit').click();
         });
-
-        document.querySelector('.custom-promocode-submit').addEventListener('click',function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-            if (document.querySelector('.custom-input-code').value === "") {
-                removingCustomClasses();
-                customMessage.innerText="";
-            } else if(document.querySelector('.custom-input-code').value === "MONDO10"){
-                matchingCouponCode();
-            } else {
-                placeholderHeading.classList.add('show-heading');
-                placeholderHeading.classList.remove('custom-pass');
-                placeholderHeading.classList.add('custom-fail');
-                customMessage.innerText="Questo codice promozionale non è valido.";
-                customMessage.classList.add('custom-fail');
-                customMessage.classList.remove('custom-pass');
-                document.querySelector('.custom-input-code').classList.add('custom-border-color-fail');
-                document.querySelector('.custom-input-code').classList.remove('custom-border-color-pass');
-                document.querySelector('.custom-wrong').classList.add('custom-show');
-                document.querySelector('.custom-arrow').classList.remove('custom-show');
-                document.querySelector('.custom-right').classList.remove('custom-show');
-            }
-        });
+        document.querySelector('.custom-input-code').value = localStorage.getItem("couponcode");
+        if (document.querySelector('.custom-input-code').value === "") {
+            removingCustomClasses();
+            customMessage.innerText="";
+        } else if (document.querySelector('.checkout-promocode-info')){
+            matchingCouponCode();
+        } else {
+            placeholderHeading.classList.add('show-heading');
+            placeholderHeading.classList.remove('custom-pass');
+            placeholderHeading.classList.add('custom-fail');
+            customMessage.innerText="Questo codice promozionale non è valido.";
+            customMessage.classList.add('custom-fail');
+            customMessage.classList.remove('custom-pass');
+            document.querySelector('.custom-input-code').classList.add('custom-border-color-fail');
+            document.querySelector('.custom-input-code').classList.remove('custom-border-color-pass');
+            document.querySelector('.custom-wrong').classList.add('custom-show');
+            document.querySelector('.custom-arrow').classList.remove('custom-show');
+            document.querySelector('.custom-right').classList.remove('custom-show');
+        }
     }
+    
     function init() {
         addCouponCode();
-        addCouponFunctionality();
     }
     waitUntil(function () {
         return document.querySelectorAll('.recap-list').length > 0;
